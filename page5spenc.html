@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+.title {
+  
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  display: block;
+   
+}
+.date {
+  font-size: 30px;
+  font-family: 'Saira Stencil One', cursive;
+  color: whitesmoke;
+  text-align: center
+}
+
+* {box-sizing: border-box;}
+
+.img-magnifier-container {
+  position:relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 300px;
+  height: 200px;
+}
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color:black; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+
+body {
+  background-image: url('background/well-background.JPG');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
+<script>
+function magnify(imgID, zoom) {
+  var img, glass, w, h, bw;
+  img = document.getElementById(imgID);
+  /*create magnifier glass:*/
+  glass = document.createElement("DIV");
+  glass.setAttribute("class", "img-magnifier-glass");
+  /*insert magnifier glass:*/
+  img.parentElement.insertBefore(glass, img);
+  /*set background properties for the magnifier glass:*/
+  glass.style.backgroundImage = "url('" + img.src + "')";
+  glass.style.backgroundRepeat = "no-repeat";
+  glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+  bw = 3;
+  w = glass.offsetWidth / 2;
+  h = glass.offsetHeight / 2;
+  /*execute a function when someone moves the magnifier glass over the image:*/
+  glass.addEventListener("mousemove", moveMagnifier);
+  img.addEventListener("mousemove", moveMagnifier);
+  /*and also for touch screens:*/
+  glass.addEventListener("touchmove", moveMagnifier);
+  img.addEventListener("touchmove", moveMagnifier);
+  function moveMagnifier(e) {
+    var pos, x, y;
+    /*prevent any other actions that may occur when moving over the image*/
+    e.preventDefault();
+    /*get the cursor's x and y positions:*/
+    pos = getCursorPos(e);
+    x = pos.x;
+    y = pos.y;
+    
+    /*prevent the magnifier glass from being positioned outside the image:*/
+    if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+    if (x < w / zoom) {x = w / zoom;}
+    if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+    if (y < h / zoom) {y = h / zoom;}
+
+    /*set the position of the magnifier glass:*/
+    glass.style.left = (x - w) + "px";
+    glass.style.top = (y - h) + "px";
+    /*display what the magnifier glass "sees":*/
+    glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /*get the x and y positions of the image:*/
+    a = img.getBoundingClientRect();
+    /*calculate the cursor's x and y coordinates, relative to the image:*/
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /*consider any page scrolling:*/
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <a class='back' href="index.html"><img src="background/spray-cap.png" ></a>
+  <img class="title" src='title/spencertitle.png'>
+
+
+
+
+<div class="img-magnifier-container">
+  <img id="july2014" src="well/july-2014-well.JPG" width="1050" height="auto">
+</div>
+
+<p class='date'> July 2014</p>
+
+<div class="img-magnifier-container">
+    <img id="may2015" src="well/may-2015-well.JPG" width="1050" height="auto">
+  </div>
+  
+  <p class='date'> May 2015</p>
+
+  <div class="img-magnifier-container">
+    <img id="august2016" src="well/august-2016-well.JPG" width="1050" height="auto">
+  </div>
+  
+  <p class='date'>August 2016</p>
+
+  <div class="img-magnifier-container">
+    <img id="july2018" src="well/july-2018-well.JPG" width="1050" height="auto">
+  </div>
+  
+  <p class='date'>July 2018</p>
+
+ 
+
+  
+  <div class="img-magnifier-container">
+    <img id="august2018" src="well/augut-2018-well.JPG" width="1050" height="auto">
+  </div>
+  
+  <p class='date'>August 2018</p>
+
+  <div class="img-magnifier-container">
+    <img id="august2021" src="well/august-2021-well.JPG" width="1050" height="auto">
+  </div>
+  
+  <p class='date'>August 2021</p>
+
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+ 
+  
+
+
+<script>
+/* Initiate Magnify Function
+with the id of the image, and the strength of the magnifier glass:*/
+magnify("july2014", 2);
+magnify("may2015", 2);
+magnify("august2016", 2);
+magnify("july2018", 2);
+magnify("august2018", 2);
+magnify("august2021", 2);
+
+//Get the button:
+mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+
+</script>
+
+</body>
+</html>

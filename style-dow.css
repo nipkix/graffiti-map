@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin:0;
+    padding:0;
+    width:100%;
+    height:auto;
+
+    overflow: hidden;
+
+     background-image: url('background/dowling-bridge-background.JPG');
+      background-repeat: no-repeat;
+     background-attachment: fixed;
+    background-size: 100% 100%;
+      
+}
+
+.arrow {
+    position: absolute;
+    
+    
+    margin:0 0 -10px 550px;
+
+    bottom:500px;
+    width: 5%;
+
+}
+.title {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    display: block;
+    margin:0 0 -10px 75px;
+}
+
+
+.street1 {
+    position: absolute;
+    z-index: 100;
+    margin:0 0 20px 585px;
+    padding: 0;
+
+    bottom:400px;
+    
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 18px;
+    text-align: left;
+    color: whitesmoke;
+}
+
+.north {
+    position:absolute;
+    z-index: 100;
+    margin:0 0 80px 550px;
+    padding: 0;
+    
+
+    bottom:300px;
+}
+
+
+.street2 {
+    position: absolute;
+    z-index: 100;
+    margin:0 0 -260px 760px;
+    padding: 0;
+
+    bottom:500px;
+    
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 18px;
+    text-align: left;
+    color: whitesmoke;
+    
+}
+
+.center {
+    position:absolute;
+    
+    margin:0 0 -100px 730px;
+    
+    
+    
+
+    bottom:300px;
+}
+
+.south {
+    position:absolute;
+    
+    margin:0 0 -260px 600px;
+    
+    
+
+    bottom:300px;
+}
+
+
+.street3 {
+    position: absolute;
+    z-index: 100;
+    margin:0 0 -420px 630px;
+    padding: 0;
+
+    bottom:500px;
+    
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 18px;
+    text-align: left;
+    color: whitesmoke;
+}
+
+.back{
+    margin:0 0 -420px 1425px;
+
+}
+
+
+
+
+
+.artist {
+    position: absolute;
+    z-index: 100;
+    margin:0 20px 20px 0;
+    padding: 0;
+
+    bottom:0px;
+    right:0px;
+    
+    font-family: Times New Roman;
+    font-size: 20px;
+    font-style:  italic;
+    text-align: right;
+    color: black;
+}
+
+.background {
+    height: 100vh;
+    position: absolute;
+    z-index: 0;
+}
+
+img:not(.background, .arrow , .title , .back):hover{
+    transform-origin: 0% 0%;
+    transform:rotate(1deg) translate(-30%, -30%);
+}
+
+img {
+    transition: transform 0.1s ease-in-out;
+}
+
+
+
+a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a:active {
+    text-decoration: underline;
+  }
+
+
+
+  /* unvisited link */
+a:link {
+    color: whitesmoke;
+  }
+  
+  
+  
+  /* mouse over link */
+  a:hover {
+    color: red;
+  }
+  
+
+  
+  
